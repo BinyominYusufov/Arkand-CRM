@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Компактный знак ARKAND: монограмма «A» на бренд-цвете (см. tokens: --brand) -->
+  <rect width="32" height="32" rx="6" fill="#A4161A"/>
+  <path d="M16 7 L24.5 25 H20.9 L19.2 21.2 H12.8 L11.1 25 H7.5 Z M16 13.2 L14.1 17.6 H17.9 Z" fill="#FFFFFF"/>
+</svg>

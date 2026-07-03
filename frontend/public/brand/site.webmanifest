@@ -1,0 +1,10 @@
+{
+  "name": "ARKAND",
+  "short_name": "ARKAND",
+  "icons": [
+    { "src": "/brand/favicon.svg", "sizes": "32x32 180x180 512x512", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#A4161A",
+  "background_color": "#FAF9F8",
+  "display": "standalone"
+}

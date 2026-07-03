@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 32" width="168" height="32">
+  <!-- Вордмарк ARKAND (провизорный SVG).
+       Оригинальный файл arkand_logo.png добавляет разработчик в
+       shared/assets/brand/ — компонент BrandLogo подхватит его автоматически. -->
+  <rect width="32" height="32" rx="6" fill="#A4161A"/>
+  <path d="M16 7 L24.5 25 H20.9 L19.2 21.2 H12.8 L11.1 25 H7.5 Z M16 13.2 L14.1 17.6 H17.9 Z" fill="#FFFFFF"/>
+  <text x="40" y="22.5" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="700" letter-spacing="3" fill="#1A1416">ARKAND</text>
+</svg>

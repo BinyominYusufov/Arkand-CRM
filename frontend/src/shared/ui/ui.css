@@ -1,0 +1,354 @@
+/* UI-кит ARKAND: рабочий инструмент бухгалтера — плотно, тонкие бордеры. */
+
+/* --- Кнопки --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn--primary {
+  background: var(--brand);
+  color: var(--white);
+}
+.btn--primary:hover:not(:disabled) {
+  background: var(--brand-hover);
+}
+.btn--secondary {
+  background: var(--surface);
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+.btn--secondary:hover:not(:disabled) {
+  background: var(--n-100);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+.btn--ghost:hover:not(:disabled) {
+  background: var(--n-100);
+  color: var(--text);
+}
+.btn--danger {
+  background: var(--surface);
+  border-color: var(--error);
+  color: var(--error);
+}
+.btn--danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--error) 8%, var(--surface));
+}
+
+/* Icon-кнопки строк таблиц */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.icon-btn:hover:not(:disabled) {
+  background: var(--n-100);
+  color: var(--text);
+}
+.icon-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.icon-btn--success:hover:not(:disabled) {
+  color: var(--success);
+}
+.icon-btn--danger:hover:not(:disabled) {
+  color: var(--error);
+}
+
+/* --- Таблицы --- */
+.tbl-wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.tbl {
+  width: 100%;
+  font-size: 13px;
+}
+.tbl th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-strong);
+  white-space: nowrap;
+  background: var(--n-50);
+}
+.tbl td {
+  padding: 7px 10px;
+  border-bottom: 0.5px solid var(--border);
+  vertical-align: middle;
+}
+.tbl tbody tr:last-child td {
+  border-bottom: none;
+}
+.tbl tbody tr:hover {
+  background: var(--n-50);
+}
+.tbl td.num,
+.tbl th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.tbl .row-actions {
+  display: flex;
+  gap: 2px;
+  justify-content: flex-end;
+}
+
+/* --- Бейджи статусов: иконка + цвет + текст --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px 1px 5px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.badge--success {
+  color: var(--success);
+  background: color-mix(in srgb, var(--success) 9%, var(--surface));
+  border-color: color-mix(in srgb, var(--success) 25%, var(--surface));
+}
+.badge--warning {
+  color: var(--warning);
+  background: color-mix(in srgb, var(--warning) 9%, var(--surface));
+  border-color: color-mix(in srgb, var(--warning) 25%, var(--surface));
+}
+.badge--error {
+  color: var(--error);
+  background: color-mix(in srgb, var(--error) 8%, var(--surface));
+  border-color: color-mix(in srgb, var(--error) 25%, var(--surface));
+}
+.badge--muted {
+  color: var(--text-muted);
+  background: var(--n-100);
+  border-color: var(--border);
+}
+.badge--info {
+  color: var(--info);
+  background: color-mix(in srgb, var(--info) 8%, var(--surface));
+  border-color: color-mix(in srgb, var(--info) 22%, var(--surface));
+}
+
+/* --- Деньги --- */
+.money {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* --- Карточки, шапки --- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+.card__title {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.page-header h1 {
+  font-size: 20px;
+}
+.page-header .page-header__actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 18px 0 10px;
+}
+
+/* --- Формы --- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+.field label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.field .field__error {
+  font-size: 12px;
+  color: var(--error);
+}
+.input,
+.select {
+  padding: 6px 9px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--surface);
+  color: var(--text);
+  min-width: 0;
+}
+.input:focus,
+.select:focus {
+  outline: 2px solid color-mix(in srgb, var(--brand) 35%, transparent);
+  outline-offset: 0;
+  border-color: var(--brand);
+}
+
+/* --- Модалка --- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(26 20 22 / 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8vh 16px;
+  z-index: 50;
+}
+.modal {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 460px;
+  max-height: 84vh;
+  overflow-y: auto;
+  padding: 18px 20px;
+}
+.modal__title {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+.modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* --- Вспомогательные --- */
+.filters-bar {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.filters-bar .field {
+  margin-bottom: 0;
+}
+.progress {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--n-200);
+  overflow: hidden;
+}
+.progress__bar {
+  height: 100%;
+  border-radius: 3px;
+}
+.empty-state {
+  padding: 32px;
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 13px;
+}
+.error-banner {
+  border: 1px solid color-mix(in srgb, var(--error) 30%, var(--surface));
+  background: color-mix(in srgb, var(--error) 6%, var(--surface));
+  color: var(--error);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.kpi-value {
+  font-size: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 8px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.tabs {
+  display: flex;
+  gap: 2px;
+  border-bottom: 1px solid var(--border-strong);
+  margin-bottom: 14px;
+}
+.tabs__tab {
+  padding: 7px 14px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.tabs__tab:hover {
+  color: var(--text);
+}
+.tabs__tab--active {
+  color: var(--brand);
+  border-bottom-color: var(--brand);
+}

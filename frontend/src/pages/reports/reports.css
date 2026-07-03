@@ -1,0 +1,33 @@
+/* Печатная шапка отчёта ФНС: на экране скрыта, видна при печати. */
+.report-print-header {
+  display: none;
+}
+
+.report-print-header__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.report-print-header__date {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+@media print {
+  .report-print-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-strong);
+  }
+
+  /* Управляющие элементы не печатаем — только сам отчёт. */
+  .reports-page .tabs,
+  .reports-page .filters-bar,
+  .reports-page .page-header {
+    display: none;
+  }
+}

@@ -1,0 +1,18 @@
+# Покрытие меряем по бизнес-слоям: services, selectors, permissions, rbac,
+# модели/сериализаторы. Инфраструктура (миграции, admin, management) — вне скоупа.
+[run]
+source = apps
+omit =
+    apps/*/migrations/*
+    apps/*/admin.py
+    apps/*/apps.py
+    apps/*/tests/*
+    apps/core/management/*
+    apps/testing/*
+
+[report]
+precision = 1
+exclude_lines =
+    pragma: no cover
+    def __str__
+    if TYPE_CHECKING:

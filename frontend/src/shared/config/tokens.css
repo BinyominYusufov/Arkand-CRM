@@ -1,0 +1,54 @@
+/* Дизайн-система ARKAND — все цвета ТОЛЬКО через эти переменные.
+   Hex в компонентах запрещён (ТЗ, раздел 8). */
+:root {
+  /* бренд */
+  --brand: #a4161a;
+  --brand-hover: #85111a;
+  --brand-deep: #6b0f18;
+  --ink: #1a1416;
+  --paper: #faf9f8;
+  --white: #ffffff;
+  /* нейтральные (warm gray) */
+  --n-50: #faf9f8;
+  --n-100: #f4f2f1;
+  --n-200: #e7e3e2;
+  --n-300: #d4cfcd;
+  --n-400: #b0a9a7;
+  --n-500: #8a8280;
+  --n-600: #665f5e;
+  --n-700: #4a4341;
+  --n-800: #2e2826;
+  --n-900: #1a1416;
+  /* статусы */
+  --success: #15803d;
+  --warning: #b45309;
+  --error: #dc2626;
+  --info: #1d4ed8;
+  /* деньги */
+  --money-in: #15803d;
+  --money-out: #dc2626;
+  --money-zero: #1a1416;
+  /* категориальные (графики по бизнесам) */
+  --cat-1: #a4161a;
+  --cat-2: #0e7490;
+  --cat-3: #b45309;
+  --cat-4: #475569;
+  --cat-5: #7e22ce;
+  --cat-6: #15803d;
+
+  /* производные токены интерфейса (не цвета-константы, а роли) */
+  --bg: var(--paper);
+  --surface: var(--white);
+  --border: var(--n-200);
+  --border-strong: var(--n-300);
+  --text: var(--ink);
+  --text-muted: var(--n-600);
+  --text-faint: var(--n-500);
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --shadow-sm: 0 1px 2px rgb(26 20 22 / 0.06);
+  --font:
+    "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial,
+    sans-serif;
+}
