@@ -1,5 +1,5 @@
 import type {
-  InputHTMLAttributes,
+  ComponentPropsWithRef,
   ReactNode,
   SelectHTMLAttributes,
 } from "react";
@@ -24,7 +24,7 @@ export function Field({
   );
 }
 
-export function Input(props: InputHTMLAttributes<HTMLInputElement>) {
+export function Input(props: ComponentPropsWithRef<"input">) {
   return <input className="input" {...props} />;
 }
 

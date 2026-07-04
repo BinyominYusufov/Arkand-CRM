@@ -12,9 +12,13 @@ export const USERS = {
 
 /** Вход через UI; ждёт ухода со страницы логина. */
 export async function login(page: Page, email: string) {
+  // Гард уводит залогиненного с /login — сбрасываем предыдущую сессию.
+  await page.goto("/login");
+  await page.evaluate(() => localStorage.clear());
   await page.goto("/login");
   await page.getByLabel("Email").fill(email);
-  await page.getByLabel("Пароль").fill(PASSWORD);
+  // exact: рядом с полем есть кнопка «Показать пароль», совпадающая по подстроке.
+  await page.getByLabel("Пароль", { exact: true }).fill(PASSWORD);
   await page.getByRole("button", { name: "Войти" }).click();
   await expect(page).not.toHaveURL(/\/login/, { timeout: 15_000 });
 }

@@ -1,0 +1,282 @@
+/* Страница входа ARKAND: сплит-раскладка, бренд-панель + форма (спека §4). */
+
+.login-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Один экран, без прокрутки страницы. */
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--ink-50);
+  font-family: var(--font-ui);
+}
+
+/* --- Левая брендовая панель --- */
+.login-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 48px 52px;
+  color: var(--ink-100);
+  background:
+    radial-gradient(120% 90% at 85% -10%, rgb(146 20 24 / 0.35), transparent 60%),
+    linear-gradient(160deg, var(--ink-950) 0%, var(--ink-900) 55%, var(--brand-950) 100%);
+}
+.login-brand__phoenix {
+  width: 132px;
+  height: auto;
+  display: block;
+}
+.login-brand__wordmark {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 34px;
+  letter-spacing: 0.28em;
+  color: var(--ink-0);
+  margin-top: 10px;
+}
+.login-brand__rule {
+  width: 46px;
+  height: 2px;
+  background: var(--brand-600);
+  margin: 14px 0 10px;
+}
+.login-brand__kicker {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+.login-brand__lede {
+  margin: 0;
+  max-width: 400px;
+  font-family: var(--font-serif);
+  font-size: 25px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--ink-100);
+}
+.login-brand__lede b {
+  color: var(--brand-300);
+  font-weight: 600;
+}
+.login-brand__units-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  margin-bottom: 10px;
+}
+.login-brand__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.login-brand__chip {
+  border: 1px solid rgb(244 241 239 / 0.16);
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-size: 12.5px;
+  color: var(--ink-300);
+  background: rgb(244 241 239 / 0.05);
+}
+
+/* --- Правая панель с формой --- */
+.login-side {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 24px 20px;
+  min-height: 0;
+  overflow: hidden;
+}
+.login-side__lang {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+}
+.login-side__inner {
+  width: 100%;
+  max-width: 430px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  animation: login-fade-in 0.35s ease both;
+}
+.login-side__title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink-900);
+  margin: 0 0 3px;
+}
+.login-side__subtitle {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+/* Плотнее форма: страница обязана умещаться в один экран. */
+.login-form .field {
+  margin-bottom: 10px;
+}
+
+/* --- Форма --- */
+.login-form .field label {
+  color: var(--ink-600);
+}
+.login-form .input {
+  border-radius: var(--radius);
+  border-color: var(--border);
+  padding: 9px 11px;
+  font-size: 14px;
+  background: var(--surface);
+}
+.login-form .input:hover:not(:focus) {
+  border-color: var(--border-strong);
+}
+.login-form .input:focus {
+  outline: none;
+  border-color: var(--brand-500);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+.login-form__error {
+  border: 1px solid var(--danger-border);
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border-radius: var(--radius);
+  padding: 9px 12px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.login-form__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: var(--ink-0);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background 0.12s ease;
+}
+.login-form__submit:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+.login-form__submit:active:not(:disabled) {
+  background: var(--primary-active);
+}
+.login-form__submit:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+.login-form__submit:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+.login-form__spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgb(255 255 255 / 0.4);
+  border-top-color: var(--ink-0);
+  animation: login-spin 0.7s linear infinite;
+}
+
+@keyframes login-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes login-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .login-side__inner {
+    animation: none;
+  }
+  .login-form__spinner {
+    animation-duration: 1.6s;
+  }
+}
+
+/* Невысокие экраны: ещё плотнее, подсказку демо-панели прячем. */
+@media (max-height: 760px) {
+  .login-side {
+    padding-top: 48px;
+  }
+  .login-side__title {
+    font-size: 20px;
+  }
+  .login-side__subtitle {
+    margin-bottom: 10px;
+  }
+  .login-form .field {
+    margin-bottom: 8px;
+  }
+  .demo-panel__hint {
+    display: none;
+  }
+  .demo-panel {
+    padding-top: 8px;
+    padding-bottom: 9px;
+  }
+}
+
+/* --- Mobile (≤900px): бренд-панель сворачивается в компактную шапку,
+       одна колонка физически не умещается в экран — возвращаем прокрутку. --- */
+@media (max-width: 900px) {
+  .login-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: auto;
+    min-height: 100dvh;
+    overflow: auto;
+  }
+  .login-brand {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 14px 20px;
+  }
+  .login-brand__top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .login-brand__phoenix {
+    width: 54px;
+  }
+  .login-brand__wordmark {
+    font-size: 22px;
+    margin-top: 0;
+  }
+  .login-brand__rule,
+  .login-brand__kicker,
+  .login-brand__lede,
+  .login-brand__units {
+    display: none;
+  }
+  .login-side {
+    padding-top: 76px;
+    align-items: flex-start;
+  }
+}

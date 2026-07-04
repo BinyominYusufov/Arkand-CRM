@@ -46,14 +46,32 @@
     "forbidden": "Недостаточно прав"
   },
   "auth": {
-    "title": "Вход в ARKAND",
-    "subtitle": "Финансовый модуль холдинга",
+    "logout": "Выйти"
+  },
+  "login": {
+    "brandKicker": "Финансовый модуль · Холдинг",
+    "brandLede": "Единый финансовый контур группы — от <b>кассы предприятия</b> до <b>консолидации холдинга</b>.",
+    "unitsLabel": "Предприятия группы",
+    "title": "Вход в систему",
+    "subtitle": "Введите почту и пароль для доступа к панели",
     "email": "Email",
     "password": "Пароль",
+    "forgot": "Забыли пароль?",
     "submit": "Войти",
-    "logout": "Выйти",
-    "invalidCredentials": "Неверный email или пароль",
-    "demoHint": "Демо-доступ (пароль arkand2026): nigina@arkand.tj — главбух · firuz@arkand.tj — бухгалтер · jamshed@arkand.tj — кассир · owner@arkand.tj — владелец"
+    "submitting": "Входим…",
+    "showPassword": "Показать пароль",
+    "hidePassword": "Скрыть пароль",
+    "demoTitle": "Демо-доступ",
+    "demoPw": "пароль",
+    "demoHint": "Нажмите на аккаунт — логин и пароль подставятся",
+    "groups": { "acc": "Бухгалтерия", "cash": "Кассиры", "own": "Владельцы", "sys": "Система" },
+    "roles": { "chief": "главный", "manager": "менеджер", "admin": "админ" },
+    "errors": {
+      "required": "Заполните почту и пароль",
+      "invalidEmail": "Проверьте формат почты",
+      "invalidCredentials": "Неверная почта или пароль",
+      "network": "Не удалось подключиться. Попробуйте ещё раз"
+    }
   },
   "nav": {
     "finance": "Финансы",

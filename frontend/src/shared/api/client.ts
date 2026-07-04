@@ -1,5 +1,7 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from "axios";
 
+import { API_URL } from "@/shared/config/env";
+
 const ACCESS_KEY = "arkand_access";
 const REFRESH_KEY = "arkand_refresh";
 
@@ -20,7 +22,7 @@ export const tokenStorage = {
   },
 };
 
-export const api = axios.create({ baseURL: "/api/v1" });
+export const api = axios.create({ baseURL: API_URL });
 
 api.interceptors.request.use((config) => {
   const token = tokenStorage.access;
@@ -46,7 +48,7 @@ api.interceptors.response.use(
       original._retry = true;
       try {
         refreshing ??= axios
-          .post("/api/v1/auth/refresh", { refresh: tokenStorage.refresh })
+          .post(`${API_URL}/auth/refresh`, { refresh: tokenStorage.refresh })
           .then((res) => {
             tokenStorage.set(res.data.access);
             return res.data.access as string;

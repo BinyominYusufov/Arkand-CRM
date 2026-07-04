@@ -1,47 +1,64 @@
-import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import { Trans, useTranslation } from "react-i18next";
 
-import { LoginForm } from "@/features/auth/LoginForm";
+import { homeRoute, useMe } from "@/entities/session";
+import { LoginForm, type LoginPrefill } from "@/features/auth/LoginForm";
+import { DemoAccounts } from "@/features/auth/demo-accounts/DemoAccounts";
 import { LanguageSwitcher } from "@/features/language-switcher";
-import { BrandLogo, Card } from "@/shared/ui";
+import { tokenStorage } from "@/shared/api";
+import { PhoenixMark } from "@/shared/ui";
+
+import "./login.css";
+
+const UNITS = ["Строй-Инвест", "Проект-Бюро", "Завод Алмосӣ", "Завод Сомон"];
 
 export function LoginPage() {
   const { t } = useTranslation();
+  const [prefill, setPrefill] = useState<LoginPrefill | undefined>();
+  // Залогиненный пользователь на /login — сразу в приложение.
+  const { data: me } = useMe(Boolean(tokenStorage.access));
+  if (me) return <Navigate to={homeRoute(me)} replace />;
+
   return (
-    <div
-      style={{
-        minHeight: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "var(--paper)",
-        padding: 16,
-      }}
-    >
-      <div style={{ width: 360 }}>
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>
-          <BrandLogo variant="full" height={36} />
+    <div className="login-layout">
+      <aside className="login-brand">
+        <div className="login-brand__top">
+          <PhoenixMark className="login-brand__phoenix" />
+          <div className="login-brand__wordmark">ARKAND</div>
+          <div className="login-brand__rule" aria-hidden />
+          <div className="login-brand__kicker">{t("login.brandKicker")}</div>
         </div>
-        <Card>
-          <h1 style={{ fontSize: 17, marginBottom: 2 }}>{t("auth.title")}</h1>
-          <p style={{ margin: "0 0 14px", color: "var(--text-muted)", fontSize: 13 }}>
-            {t("auth.subtitle")}
-          </p>
-          <LoginForm />
-          <p
-            style={{
-              margin: "14px 0 0",
-              fontSize: 12,
-              lineHeight: 1.5,
-              color: "var(--text-muted)",
-            }}
-          >
-            {t("auth.demoHint")}
-          </p>
-        </Card>
-        <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
+        <p className="login-brand__lede">
+          <Trans i18nKey="login.brandLede" components={{ b: <b /> }} />
+        </p>
+        <div className="login-brand__units">
+          <div className="login-brand__units-label">{t("login.unitsLabel")}</div>
+          <div className="login-brand__chips">
+            {UNITS.map((unit) => (
+              <span key={unit} className="login-brand__chip">
+                {unit}
+              </span>
+            ))}
+          </div>
+        </div>
+      </aside>
+
+      <main className="login-side">
+        <div className="login-side__lang">
           <LanguageSwitcher />
         </div>
-      </div>
+        <div className="login-side__inner">
+          <h1 className="login-side__title">{t("login.title")}</h1>
+          <p className="login-side__subtitle">{t("login.subtitle")}</p>
+          <LoginForm prefill={prefill} />
+          <DemoAccounts
+            onPick={(email, password) =>
+              setPrefill({ email, password, nonce: Date.now() })
+            }
+          />
+        </div>
+      </main>
     </div>
   );
 }

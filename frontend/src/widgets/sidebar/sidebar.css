@@ -7,6 +7,13 @@
   border-right: 1px solid var(--border);
   padding: 14px 10px;
   gap: 14px;
+  /* Сайдбар зафиксирован на высоту экрана и не прокручивается со страницей;
+     при переполнении навигации скроллится только его содержимое. */
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
 }
 .sidebar--collapsed {
   width: 58px;
