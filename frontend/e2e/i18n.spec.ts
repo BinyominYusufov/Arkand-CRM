@@ -12,8 +12,8 @@ test.describe("Локализация ru ↔ tj", () => {
     await expect(page.getByRole("button", { name: "Ворид шудан" })).toBeVisible();
 
     // Входим на таджикском — сайдбар на tj.
-    await page.getByLabel("Email").fill(USERS.chief);
-    await page.getByLabel("Рамз").fill(PASSWORD);
+    await page.getByLabel("Почта").fill(USERS.chief);
+    await page.getByLabel("Парол", { exact: true }).fill(PASSWORD);
     await page.getByRole("button", { name: "Ворид шудан" }).click();
     await expect(page.getByRole("link", { name: "Молия" })).toBeVisible({ timeout: 15_000 });
 

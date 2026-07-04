@@ -6,7 +6,7 @@ test.describe("Вход и видимость разделов по ролям",
   test("неверный пароль — ошибка", async ({ page }) => {
     await page.goto("/login");
     await page.getByLabel("Email").fill(USERS.chief);
-    await page.getByLabel("Пароль").fill("wrong-password");
+    await page.getByLabel("Пароль", { exact: true }).fill("wrong-password");
     await page.getByRole("button", { name: "Войти" }).click();
     await expect(page.getByRole("alert")).toBeVisible();
     await expect(page).toHaveURL(/\/login/);
@@ -40,14 +40,24 @@ test.describe("Вход и видимость разделов по ролям",
     await expect(nav.getByRole("link", { name: "Финансы" })).toBeVisible();
   });
 
-  test("логотип ARKAND в сайдбаре и на входе; favicon подключён", async ({ page }) => {
+  test("брендинг ARKAND на входе и в сайдбаре; favicon подключён", async ({ page }) => {
     await page.goto("/login");
-    await expect(page.getByAltText("ARKAND")).toBeVisible();
+    // Брендовая панель: вордмарк засечным + феникс.
+    await expect(page.locator(".login-brand__wordmark")).toHaveText("ARKAND");
+    await expect(page.locator(".login-brand__phoenix")).toBeVisible();
     await expect(page.locator('link[rel="icon"]')).toHaveAttribute(
       "href",
       /brand\/favicon\.svg/,
     );
     await login(page, USERS.chief);
     await expect(page.getByAltText("ARKAND")).toBeVisible();
+  });
+
+  test("демо-панель заполняет форму по клику", async ({ page }) => {
+    await page.goto("/login");
+    await page.getByRole("button", { name: /nigina/ }).click();
+    await expect(page.getByLabel("Email")).toHaveValue("nigina@arkand.tj");
+    await expect(page.getByLabel("Пароль", { exact: true })).toHaveValue("arkand2026");
+    await expect(page.getByLabel("Email")).toBeFocused();
   });
 });

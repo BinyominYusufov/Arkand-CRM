@@ -51,4 +51,48 @@
   --font:
     "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial,
     sans-serif;
+
+  /* --- Шкалы ARKAND (спека «страница входа», §4.2). Полный перевод
+     остального интерфейса на них — отдельный этап (design/refresh). --- */
+  --brand-50: #fbf2f2;
+  --brand-100: #f7e0e1;
+  --brand-200: #efc3c4;
+  --brand-300: #e29b9d;
+  --brand-400: #d06b6e;
+  --brand-500: #b83e42;
+  --brand-600: #9e1b1f;
+  --brand-700: #931518;
+  --brand-800: #7a1417;
+  --brand-900: #611315;
+  --brand-950: #3b0b0d;
+  --ink-0: #ffffff;
+  --ink-50: #faf8f7;
+  --ink-100: #f4f1ef;
+  --ink-200: #e9e4e1;
+  --ink-300: #d8d1cd;
+  --ink-400: #aba29d;
+  --ink-500: #7e7571;
+  --ink-600: #5d544f;
+  --ink-700: #443c39;
+  --ink-800: #2d2624;
+  --ink-900: #1b1513;
+  --ink-950: #110c0b;
+  --danger: #d42b30;
+  --danger-text: #b01e23;
+  --danger-border: #f09595;
+  --danger-bg: #fdf2f2;
+
+  --text-2: var(--ink-600);
+  --text-3: var(--ink-500);
+  --placeholder: var(--ink-400);
+  --primary: var(--brand-600);
+  --primary-hover: var(--brand-700);
+  --primary-active: var(--brand-800);
+  --link: var(--brand-700);
+  --focus-ring: rgba(158, 27, 31, 0.32);
+  --radius: 8px;
+  --radius-card: 14px;
+
+  --font-ui: "Golos Text", "Noto Sans", system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
 }
